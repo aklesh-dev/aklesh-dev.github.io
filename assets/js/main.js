@@ -82,19 +82,20 @@ const scrollActive  = () =>{
         const sectionHeight = current.offsetHeight,
             sectionTop = current.offsetTop - 58,
             sectionId = current.getAttribute('id'),
-            sectionClass = document.querySelector('.nav__menu a[href*= ' + sectionId +']') 
-        
+            sectionsClass = document.querySelector('.nav__menu a[href*= ' + sectionId +']')         
         if(scrollDown > sectionTop  && scrollDown <= sectionTop + sectionHeight){
-            sectionClass.classList.add('active-link')
+            sectionsClass.classList.add('active-link');
+            // console.log(sectionsClass);
             
         }
         else{
-            sectionClass.classList.remove('active-link');
+            sectionsClass.classList.remove('active-link');
+            // console.log(sectionsClass);
             
         }
-    })
-}
-window.addEventListener('scroll', scrollActive)
+    });
+};
+window.addEventListener('scroll', scrollActive);
 
 /*=============== DARK LIGHT THEME ===============*/ 
 const themeButton =  document.getElementById('theme-button')
@@ -127,3 +128,16 @@ themeButton.addEventListener('click', () => {
 })
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '80px',
+    duration: 2000,
+    delay: 400,
+    // reset: true  // Reset the animation on each reveal so it doesn't accumulate indefinitely.
+});
+
+sr.reveal(`.home__profile, .about__image, .contact__mail`, {origin: 'right'})
+sr.reveal(`.home__name, .home__info,
+            .about__container, .about__info, .section__title-1,
+            .contact__social, .contact__data`, {origin: 'left'})
+sr.reveal(`.services__card, .projects__card`, {interval: 100})
