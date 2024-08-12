@@ -739,6 +739,7 @@ body.dark-theme {
 
 .projects__container {
   row-gap: 2rem;
+  
 }
 
 .projects__card {
@@ -1474,7 +1475,7 @@ body.dark-theme {
   }
 
   .projects__container {
-    grid-template-columns: repeat(3, 352px);
+    /* grid-template-columns: repeat(3, 352px); */
     padding-block: 3rem 1rem;
   }
 
